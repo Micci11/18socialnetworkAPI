@@ -1,12 +1,16 @@
+// Import the User and Thought models
 const { User, Thought } = require("../models");
 
+// Export the controller object
 module.exports = {
+  // Controller method to get all users
   getUser(req, res) {
     User.find({})
       .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
 
+  // Controller method to get a single user by ID
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .populate("thoughts")
@@ -20,6 +24,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
+  // Controller method to create a new user
   createUser(req, res) {
     User.create(req.body)
       .then((user) => res.json(user))
@@ -29,6 +34,7 @@ module.exports = {
       });
   },
 
+  // Controller method to update a user by ID
   updateUser(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -43,6 +49,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
+  // Controller method to delete a user by ID
   deleteUser(req, res) {
     User.findOneAndDelete({ _id: req.params.userId })
       .then((user) => {
@@ -58,6 +65,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
+  // Controller method to add a friend to a user
   addFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -72,6 +80,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
+  // Controller method to delete a friend from a user
   deleteFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },

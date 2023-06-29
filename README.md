@@ -32,11 +32,11 @@ Once the project is set up and the server is running, you can use a tool like In
 ## Technologies
 The following technologies were used in the development of this project:
 
-Express.js
-Sequelize
-MySQL
-Insomnia Core
-JavaScript
+-Express.js
+-Sequelize
+-MySQL
+-Insomnia Core
+-JavaScript
 
 ## Resources
 
